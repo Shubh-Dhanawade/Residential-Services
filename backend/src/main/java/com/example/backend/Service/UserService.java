@@ -12,6 +12,7 @@ public interface  UserService {
 
   
   public boolean addUser(User user);
+  public User login(String email , String password);
 
 
  

@@ -1,0 +1,49 @@
+<div id="main-container">
+    <div class="container" [ngClass]="status" id="container">
+        <div class="form-container sign-up">
+            <form>
+                <h1>Create Account</h1>
+
+                <span>or use your email for registeration</span>
+                <input type=" text" placeholder="Name" required>
+                <input type=" number" placeholder="Phone Number" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+
+                <div class="d-flex w-50 align-items-center justify-content-center ">
+                    <input type="radio" name="role" id="user">
+                    <label for="user" class="text-success">User</label>
+                    <input type="radio" name="role" id="worker">
+                    <label for="worker" class="text-success">Worker</label>
+                </div>
+
+                <button>Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form>
+                <h1>Sign In</h1>
+
+                <span>or use your email password</span>
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password" required>
+                <a href="#">Forget Your Password?</a>
+                <button>Sign In</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Welcome Back!</h1>
+                    <p>Enter your personal details to use all of site features</p>
+                    <button class="hidden" id="login" (click)="signIn()">Sign In</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Register with your personal details to use all of site features</p>
+                    <button class="hidden" id="register" (click)="signUp()">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

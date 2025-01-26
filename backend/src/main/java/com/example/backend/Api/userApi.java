@@ -32,16 +32,7 @@ public class userApi {
     //     return userService.addUser(entity);
     // }
 
-    
 
-    @GetMapping("/login")
-    public boolean loginMethodName(@RequestBody User entity) {
-
-       
-        
-        
-        return true;
-    }
     @PostMapping("/register")
     public ResponseEntity<?> postMethodName(@Valid @RequestBody User entity) {
 
@@ -75,6 +66,28 @@ public class userApi {
     public List<User> getData() {
         return userService.getUser();
     }
+
+
+    @PostMapping("/login")
+    public User loginMethod(@RequestBody User uc) {
+        String email = uc.getEmail();
+        String password = uc.getPassword();
+
+        System.out.println(email);
+        System.out.println(password);
+
+        try{
+            return userService.login(email, password);
+        }catch(Exception e){
+            System.out.println(e);
+
+            return userService.login(email, password);
+
+        }
+        
+        
+    }
+    
 
 
     
