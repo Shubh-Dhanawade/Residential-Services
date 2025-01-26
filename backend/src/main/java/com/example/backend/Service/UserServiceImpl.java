@@ -61,6 +61,18 @@ public class UserServiceImpl implements UserService{
     }
 
 
+    @Override
+    public User login(String email, String password) {
+        User uc = userrp.login(email, password);
+        System.out.println(uc.getEmail());
+        System.out.println(uc.getPassword());
+        System.out.println(uc);
+
+
+        return uc;
+    }
+
+
    
 
    
