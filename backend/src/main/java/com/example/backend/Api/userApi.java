@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +15,9 @@ import com.example.backend.Modules.User;
 import com.example.backend.Service.UserService;
 
 import jakarta.validation.Valid;
+
+
+
 
 
 @RestController
@@ -28,8 +32,11 @@ public class userApi {
     //     return userService.addUser(entity);
     // }
 
-    @PostMapping("/login")
+    
+
+    @GetMapping("/login")
     public boolean loginMethodName(@RequestBody User entity) {
+
        
         
         
@@ -40,13 +47,14 @@ public class userApi {
 
         ResponceModel responceModel = new ResponceModel();
 
+        // To response from response model to show result from code like 200, 201 etc
         if(userService.addUser(entity)){
-            responceModel.setMessage("Register Sussful");
+            responceModel.setMessage("Registered Successfully");
             return ResponseEntity.status(HttpStatus.CREATED).body(responceModel.getMessage());
         }
         else{
            
-                responceModel.setMessage("Register Faill");
+                responceModel.setMessage("Registration Failed");
                 return  ResponseEntity.status(HttpStatus.FORBIDDEN).body(responceModel.getMessage());
         }
         
@@ -62,6 +70,18 @@ public class userApi {
         
         return "Hello Dashboard here";
     }
+
+    @GetMapping("/userdata")
+    public List<User> getData() {
+        return userService.getUser();
+    }
+
+
+    
+    
+    
+  
+    
 
     
     

@@ -13,7 +13,7 @@ public class SecurityConfig {
     SecurityFilterChain securityFilterChain (HttpSecurity http) throws Exception{
 
         http.authorizeHttpRequests(authorizeHttpRequests -> {
-            authorizeHttpRequests.requestMatchers("/login", "/register").permitAll();
+            authorizeHttpRequests.requestMatchers("/login", "/register","/userdata").permitAll();
             authorizeHttpRequests.anyRequest().authenticated();
         })
         .csrf(csrf->csrf.disable())
