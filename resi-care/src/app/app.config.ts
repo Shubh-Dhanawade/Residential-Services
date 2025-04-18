@@ -3,7 +3,8 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { NgClass } from '@angular/common';
+import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes) , NgClass]
+  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes) , NgClass, provideHttpClient()]
 };

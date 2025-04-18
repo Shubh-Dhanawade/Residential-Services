@@ -1,49 +1,84 @@
 <div id="main-container">
-    <div class="container" [ngClass]="status" id="container">
-        <div class="form-container sign-up">
-            <form>
-                <h1>Create Account</h1>
+  <div class="container" [ngClass]="status" id="container">
+    <div class="form-container sign-up">
+      <form (ngSubmit)="submit(ref)" #ref="ngForm">
+        <h1>Create Account</h1>
 
-                <span>or use your email for registeration</span>
-                <input type=" text" placeholder="Name" required>
-                <input type=" number" placeholder="Phone Number" required>
-                <input type="email" placeholder="Email" required>
-                <input type="password" placeholder="Password" required>
+        <!-- "id": 9007199254740991,
+  "name": "string",
+  "email": "string",
+  "password": "string",
+  "phone": "stringstri",
+  "address": "stringstri",
+  "role": "string" -->
 
-                <div class="d-flex w-50 align-items-center justify-content-center ">
-                    <input type="radio" name="role" id="user">
-                    <label for="user" class="text-success">User</label>
-                    <input type="radio" name="role" id="worker">
-                    <label for="worker" class="text-success">Worker</label>
-                </div>
+        <span>or use your email for registeration</span>
+        <input type="text" placeholder="Name" required name="name" ngModel />
+        <input
+          type="number"
+          placeholder="Phone Number"
+          required
+          name="phone"
+          ngModel
+        />
+        <input type="email" placeholder="Email" name="email" required ngModel />
+        <input
+          type="password"
+          placeholder="Password"
+          name="password"
+          required
+          ngModel
+        />
+        <input ngModel type="text" name="address" placeholder="Address" />
 
-                <button>Sign Up</button>
-            </form>
+        <div class="d-flex w-50 align-items-center justify-content-center">
+          <input type="radio" name="role" id="user" value="user" ngModel />
+          <label for="user" class="text-success">User</label>
+          <input type="radio" name="role" id="worker" value="worker" ngModel />
+          <label for="worker" class="text-success">Worker</label>
         </div>
-        <div class="form-container sign-in">
-            <form>
-                <h1>Sign In</h1>
 
-                <span>or use your email password</span>
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password" required>
-                <a href="#">Forget Your Password?</a>
-                <button>Sign In</button>
-            </form>
-        </div>
-        <div class="toggle-container">
-            <div class="toggle">
-                <div class="toggle-panel toggle-left">
-                    <h1>Welcome Back!</h1>
-                    <p>Enter your personal details to use all of site features</p>
-                    <button class="hidden" id="login" (click)="signIn()">Sign In</button>
-                </div>
-                <div class="toggle-panel toggle-right">
-                    <h1>Hello, Friend!</h1>
-                    <p>Register with your personal details to use all of site features</p>
-                    <button class="hidden" id="register" (click)="signUp()">Sign Up</button>
-                </div>
-            </div>
-        </div>
+        <button type="submit">Sign Up</button>
+      </form>
     </div>
+    <div class="form-container sign-in">
+      <form (ngSubmit)="login(logref)" #logref="ngForm">
+        <h1>Sign In</h1>
+
+        <span>or use your email password</span>
+        <input type="email" placeholder="Email" ngModel name="email" />
+        <input
+          type="password"
+          name="password"
+          ngModel
+          placeholder="Password"
+          required
+        />
+        <div class="d-flex w-50 align-items-center justify-content-center">
+          <input type="radio" value="user" name="role" ngModel id="user" />
+          <label for="user" class="text-success">User</label>
+          <input type="radio" value="worker" name="role" ngModel id="worker" />
+          <label for="worker" class="text-success">Worker</label>
+        </div>
+        <a href="#">Forget Your Password?</a>
+        <button type="submit">Sign In</button>
+      </form>
+    </div>
+    <div class="toggle-container">
+      <div class="toggle">
+        <div class="toggle-panel toggle-left">
+          <h1>Welcome Back!</h1>
+          <p>Enter your personal details to use all of site features</p>
+          <button class="hidden" id="login" (click)="signIn()">Sign In</button>
+        </div>
+        <div class="toggle-panel toggle-right">
+          <h1>Hello, Friend!</h1>
+          <p>Register with your personal details to use all of site features</p>
+          <button class="hidden" id="register" (click)="signUp()">
+            Sign Up
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
