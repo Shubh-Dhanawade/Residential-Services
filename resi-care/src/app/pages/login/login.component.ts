@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { UserServicesService } from '../../Services/user-services.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,12 +14,27 @@ import { UserServicesService } from '../../Services/user-services.service';
 export class LoginComponent {
 
 
-  constructor(public userServices:UserServicesService){
+  constructor(public userServices:UserServicesService , public router: Router){
 
   }
 
   login(ref:any){
-console.log(ref);
+
+    this.userServices.login(ref.value).subscribe({
+      next: (res:any)=>{
+        console.log(res);
+        if(res.success){
+          this.router.navigateByUrl('/home')
+
+          // ref.
+          
+
+        }else{
+          alert("Invalid Email or Password")
+        }
+
+      }
+    })
 
   }
 
@@ -35,6 +51,8 @@ console.log(ref);
 
 
   }
+
+
 
 
   status:any = "";
