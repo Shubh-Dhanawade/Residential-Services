@@ -4,6 +4,8 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { UserServicesService } from '../../Services/user-services.service';
 import { Router } from '@angular/router';
+import { HomepageComponent } from '../../home/homepage/homepage.component';
+import { NavComponent } from '../../home/nav/nav.component';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +20,33 @@ export class LoginComponent {
 
   }
 
+   userUrl:any= "userlogin"
+
+   isUserLog:boolean = false;
+   isWorkerLog:boolean = false;
+
+   ngOnInit(){
+    this.checkUser();
+   }
+
+  checkUser(){
+    
+    if(this.router.url == "/userlogin"){
+      this.isUserLog = true;
+      console.log("User"+this.isUserLog);
+      
+    } else if(this.router.url == "/workerlogin"){
+      this.isWorkerLog = true;
+    } 
+    
+
+  }
+
+  
+
   login(ref:any){
+    
+
 
     this.userServices.login(ref.value).subscribe({
       next: (res:any)=>{

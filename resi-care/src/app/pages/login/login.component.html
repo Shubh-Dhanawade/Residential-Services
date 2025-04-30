@@ -4,39 +4,30 @@
       <form (ngSubmit)="submit(ref)" #ref="ngForm">
         <h1>Create Account</h1>
 
-        <!-- "id": 9007199254740991,
-  "name": "string",
-  "email": "string",
-  "password": "string",
-  "phone": "stringstri",
-  "address": "stringstri",
-  "role": "string" -->
 
         <span>or use your email for registeration</span>
         <input type="text" placeholder="Name" required name="name" ngModel />
-        <input
-          type="number"
-          placeholder="Phone Number"
-          required
-          name="phone"
-          ngModel
-        />
+        <input type="number" placeholder="Phone Number" required name="phone" ngModel />
         <input type="email" placeholder="Email" name="email" required ngModel />
-        <input
-          type="password"
-          placeholder="Password"
-          name="password"
-          required
-          ngModel
-        />
+        <input type="password" placeholder="Password" name="password" required ngModel />
         <input ngModel type="text" name="address" placeholder="Address" />
 
-        <div class="d-flex w-50 align-items-center justify-content-center">
-          <input type="radio" name="role" id="user" value="user" ngModel />
-          <label for="user" class="text-success">User</label>
-          <input type="radio" name="role" id="worker" value="worker" ngModel />
-          <label for="worker" class="text-success">Worker</label>
+        @if (isUserLog) {
+
+        <div class="dropdown">
+          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown link
+          </a>
+
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
         </div>
+
+        }
 
         <button type="submit">Sign Up</button>
       </form>
@@ -47,19 +38,8 @@
 
         <span>or use your email password</span>
         <input type="email" placeholder="Email" ngModel name="email" />
-        <input
-          type="password"
-          name="password"
-          ngModel
-          placeholder="Password"
-          required
-        />
-        <div class="d-flex w-50 align-items-center justify-content-center">
-          <input type="radio" value="user" name="role" ngModel id="user" />
-          <label for="user" class="text-success">User</label>
-          <input type="radio" value="worker" name="role" ngModel id="worker" />
-          <label for="worker" class="text-success">Worker</label>
-        </div>
+        <input type="password" name="password" ngModel placeholder="Password" required />
+
         <a href="#">Forget Your Password?</a>
         <button type="submit">Sign In</button>
       </form>
