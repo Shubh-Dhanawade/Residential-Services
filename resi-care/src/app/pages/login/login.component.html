@@ -13,26 +13,27 @@
         <!-- <input type="password" placeholder="Password" name="password" required ngModel /> -->
         <input ngModel type="text" name="address" placeholder="Address" />
 
-        @if (isUserLog) {
+        <!-- @if (isUserLog) { -->
 
-        <input type="number"  name="houseNumber" id="houseNumber"
-          placeholder="House Number" ngModel required>
+        <input *ngIf="isUserLog" type="number" name="houseNumber" id="houseNumber" placeholder="House Number" ngModel
+          required>
 
+        <!-- } -->
 
-
-        }
-
-
+        <!-- @if (isWorkerLog) { -->
 
         <div *ngIf="isWorkerLog">
           <select class="ui dropdown w-100 fs-6 rounded-1 border border-white text-secondary" style="height: 40px;"
-            [(ngModel)]="workerProfession" [ngModelOptions]="{standalone: true}" name="service" required>
-            <option value="" name="">Worker Profession</option>
-            <option ngModel [ngModelOptions]="{standalone: true}" value="plumber">Plumber</option>
-            <option ngModel [ngModelOptions]="{standalone: true}" value="electrician">Electrician</option>
-            <option ngModel [ngModelOptions]="{standalone: true}" value="painter">Painter</option>
+            name="workerProfession" required ngModel>
+            <option value="">Worker Profession</option>
+            <option value="plumber">Plumber</option>
+            <option value="electrician">Electrician</option>
+            <option value="painter">Painter</option>
           </select>
         </div>
+
+
+        <!-- } -->
 
 
         <button type="submit">Sign Up</button>

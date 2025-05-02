@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, NgModule } from '@angular/core';
+import { FormsModule, NgModel } from '@angular/forms';
 import { UserServicesService } from '../../Services/user-services.service';
 import { Router } from '@angular/router';
 import { HomepageComponent } from '../../home/homepage/homepage.component';
@@ -20,11 +20,9 @@ export class LoginComponent {
 
   }
 
+ 
 
   workerProfession:string=''
-
-   userUrl:any= "userlogin"
-
    isUserLog:boolean = false;
    isWorkerLog:boolean = false;
 
