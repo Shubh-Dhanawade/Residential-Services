@@ -6,7 +6,7 @@ import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [NavComponent, NgFor],
+  imports: [NavComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })

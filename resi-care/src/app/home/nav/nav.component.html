@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light ">
+    <div class="d-flex justify-content-center gap-2">
+        <div class="d-flex justify-content-center text-center w-100 mx-5">
+            <a class=" text-decoration-none text-black text-center fw-semibold fs-4" href="#">Smart Residentail
+                Services</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse d-flex justify-content-center align-items-center " style="position: absolute;
+        right: 10%;
+        " id="navbarNavDropdown">
+            <ul class="fw-bolder navbar-nav d-flex justify-content-center align-items-center gap-3">
+                <div>
+                    <li class="nav-item active ">
+                        <a class="nav-link " href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                </div>
+                <div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                </div>
+
+                <div class="dropdown d-flex justify-content-center align-items-center">
+                    <li class="dropdown nav-item active" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Login
+                    </li>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item" href="userlogin" (click)="userLog()">House Owner (User)</a></li>
+                        <li><a class="dropdown-item" href="workerlogin" (click)="workerLog()">Worker</a></li>
+                    </ul>
+                </div>
+            </ul>
+        </div>
+
+    </div>
+</nav>

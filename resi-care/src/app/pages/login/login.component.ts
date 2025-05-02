@@ -4,6 +4,8 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { UserServicesService } from '../../Services/user-services.service';
 import { Router } from '@angular/router';
+import { HomepageComponent } from '../../home/homepage/homepage.component';
+import { NavComponent } from '../../home/nav/nav.component';
 
 @Component({
   selector: 'app-login',
@@ -17,8 +19,37 @@ export class LoginComponent {
   constructor(public userServices:UserServicesService , public router: Router){
 
   }
+ 
+
+  workerProfession:string=''
+
+   userUrl:any= "userlogin"
+
+   isUserLog:boolean = false;
+   isWorkerLog:boolean = false;
+
+   ngOnInit(){
+    this.checkUser();
+   }
+
+  checkUser(){
+    
+    if(this.router.url == "/userlogin"){
+      this.isUserLog = true;
+      console.log("User"+this.isUserLog);
+      
+    } else if(this.router.url == "/workerlogin"){
+      this.isWorkerLog = true;
+    } 
+    
+
+  }
+
+  
 
   login(ref:any){
+    
+
 
     this.userServices.login(ref.value).subscribe({
       next: (res:any)=>{
@@ -40,14 +71,17 @@ export class LoginComponent {
 
 
   submit(ref:any){
-    console.log(ref);
+    console.log(ref.value);
+    // console.log(this.workerProfession);
 
-    this.userServices.addUser(ref.value).subscribe({
-      next: (res)=>{
-        console.log(res);
 
-      }
-    });
+    // this.userServices.addUser(ref.value).subscribe({
+    //   next: (res)=>{
+    //     console.log(res);
+
+    //   }
+    // });
+
 
 
   }
