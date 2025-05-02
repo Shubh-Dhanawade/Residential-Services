@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-ValidatiotrdemoApplication<validatiotrdemo>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.example.validatiotrdemo.ValidatiotrdemoApplication",
+      "projectName": "validatiotrdemo",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}

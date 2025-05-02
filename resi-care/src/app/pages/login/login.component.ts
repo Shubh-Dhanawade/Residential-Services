@@ -19,7 +19,7 @@ export class LoginComponent {
   constructor(public userServices:UserServicesService , public router: Router){
 
   }
- 
+
 
   workerProfession:string=''
 
@@ -33,22 +33,22 @@ export class LoginComponent {
    }
 
   checkUser(){
-    
+
     if(this.router.url == "/userlogin"){
       this.isUserLog = true;
       console.log("User"+this.isUserLog);
-      
+
     } else if(this.router.url == "/workerlogin"){
       this.isWorkerLog = true;
-    } 
-    
+    }
+
 
   }
 
-  
+
 
   login(ref:any){
-    
+
 
 
     this.userServices.login(ref.value).subscribe({
@@ -58,7 +58,7 @@ export class LoginComponent {
           this.router.navigateByUrl('/home')
 
           // ref.
-          
+
 
         }else{
           alert("Invalid Email or Password")
@@ -72,15 +72,15 @@ export class LoginComponent {
 
   submit(ref:any){
     console.log(ref.value);
-    // console.log(this.workerProfession);
+    console.log(this.workerProfession);
 
 
-    // this.userServices.addUser(ref.value).subscribe({
-    //   next: (res)=>{
-    //     console.log(res);
+    this.userServices.addUser(ref.value).subscribe({
+      next: (res)=>{
+        console.log(res);
 
-    //   }
-    // });
+      }
+    });
 
 
 
