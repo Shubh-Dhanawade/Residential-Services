@@ -19,6 +19,9 @@ export class LoginComponent {
   constructor(public userServices:UserServicesService , public router: Router){
 
   }
+ 
+
+  workerProfession:string=''
 
    userUrl:any= "userlogin"
 
@@ -68,14 +71,17 @@ export class LoginComponent {
 
 
   submit(ref:any){
-    console.log(ref);
+    console.log(ref.value);
+    // console.log(this.workerProfession);
 
-    this.userServices.addUser(ref.value).subscribe({
-      next: (res)=>{
-        console.log(res);
 
-      }
-    });
+    // this.userServices.addUser(ref.value).subscribe({
+    //   next: (res)=>{
+    //     console.log(res);
+
+    //   }
+    // });
+
 
 
   }

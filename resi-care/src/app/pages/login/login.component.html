@@ -10,24 +10,30 @@
         <input type="number" placeholder="Phone Number" required name="phone" ngModel />
         <input type="email" placeholder="Email" name="email" required ngModel />
         <input type="password" placeholder="Password" name="password" required ngModel />
+        <!-- <input type="password" placeholder="Password" name="password" required ngModel /> -->
         <input ngModel type="text" name="address" placeholder="Address" />
 
         @if (isUserLog) {
 
-        <div class="dropdown">
-          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown link
-          </a>
+        <input type="number"  name="houseNumber" id="houseNumber"
+          placeholder="House Number" ngModel required>
 
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </div>
+
 
         }
+
+
+
+        <div *ngIf="isWorkerLog">
+          <select class="ui dropdown w-100 fs-6 rounded-1 border border-white text-secondary" style="height: 40px;"
+            [(ngModel)]="workerProfession" [ngModelOptions]="{standalone: true}" name="service" required>
+            <option value="" name="">Worker Profession</option>
+            <option ngModel [ngModelOptions]="{standalone: true}" value="plumber">Plumber</option>
+            <option ngModel [ngModelOptions]="{standalone: true}" value="electrician">Electrician</option>
+            <option ngModel [ngModelOptions]="{standalone: true}" value="painter">Painter</option>
+          </select>
+        </div>
+
 
         <button type="submit">Sign Up</button>
       </form>
@@ -53,7 +59,12 @@
         </div>
         <div class="toggle-panel toggle-right">
           <h1>Hello, Friend!</h1>
+          @if(isWorkerLog){
+          <p>Register with your working details to use all of site features</p>
+          }
+          @if(isUserLog){
           <p>Register with your personal details to use all of site features</p>
+          }
           <button class="hidden" id="register" (click)="signUp()">
             Sign Up
           </button>
